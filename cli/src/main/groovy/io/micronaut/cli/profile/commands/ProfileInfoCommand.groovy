@@ -92,7 +92,7 @@ class ProfileInfoCommand extends ArgumentCompletingCommand implements ProfileRep
                 console.log('--------------------')
                 Iterable<Command> commands = findCommands(profile, console).toUnique { Command c -> c.name }.sort { it.name }
                 if (!commands.empty) {
-                    int width = Math.min(20, commands.collect { it.name }.sort { it.length() }.last().length())
+                    int width = Math.min(23, commands.collect { it.name }.sort { it.length() }.last().length())
                     String separator = String.format('%n').padRight(width) // in case of multi-line command description
                     for (cmd in commands) {
                         def spec = cmd.commandSpec
@@ -104,7 +104,7 @@ class ProfileInfoCommand extends ArgumentCompletingCommand implements ProfileRep
                 console.log('--------------------')
                 def features = profile.features.sort { it.name }
                 if (!features.empty) {
-                    int width = Math.min(20, features.collect { it.name }.sort { it.length() }.last().length())
+                    int width = Math.min(21, features.collect { it.name }.sort { it.length() }.last().length())
 
                     for (feature in features) {
                         console.log("  ${feature.name.padRight(width)}  ${feature.description}")
